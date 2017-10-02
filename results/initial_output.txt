@@ -1,0 +1,35 @@
+nrparikh@ubuntu:~/eclipse-workspace/neel_parikh_week5/cpp-boilerplate/build$ valgrind --leak-check=yes --tool=memcheck ./app/shell-app 
+==3307== Memcheck, a memory error detector
+==3307== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==3307== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==3307== Command: ./app/shell-app
+==3307== 
+Averaged sensor reading: 10
+==3307== Conditional jump or move depends on uninitialised value(s)
+==3307==    at 0x401DC7: main (main.cpp:9)
+==3307== 
+==3307== 
+==3307== HEAP SUMMARY:
+==3307==     in use at exit: 72,748 bytes in 3 blocks
+==3307==   total heap usage: 4 allocs, 1 frees, 73,772 bytes allocated
+==3307== 
+==3307== 44 (24 direct, 20 indirect) bytes in 1 blocks are definitely lost in loss record 2 of 3
+==3307==    at 0x4C2E0EF: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3307==    by 0x401EEA: AnalogSensor::Read() (AnalogSensor.cpp:16)
+==3307==    by 0x401D9A: main (main.cpp:7)
+==3307== 
+==3307== LEAK SUMMARY:
+==3307==    definitely lost: 24 bytes in 1 blocks
+==3307==    indirectly lost: 20 bytes in 1 blocks
+==3307==      possibly lost: 0 bytes in 0 blocks
+==3307==    still reachable: 72,704 bytes in 1 blocks
+==3307==         suppressed: 0 bytes in 0 blocks
+==3307== Reachable blocks (those to which a pointer was found) are not shown.
+==3307== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==3307== 
+==3307== For counts of detected and suppressed errors, rerun with: -v
+==3307== Use --track-origins=yes to see where uninitialised values come from
+==3307== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+nrparikh@ubuntu:~/eclipse-workspace/neel_parikh_week5/cpp-boilerplate/build$ ^C
+nrparikh@ubuntu:~/eclipse-workspace/neel_parikh_week5/cpp-boilerplate/build$ 
+
